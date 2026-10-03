@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopSphere - Manage database catalogs, track customer order shipments, and inspect registered users.">
+  <title>ShopSphere | Admin Suite</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- DYNAMIC GLASSMORPHIC HEADER -->
+  <header>
+    <nav class="navbar container">
+      <a href="/index.html" class="logo" style="color: #1A1349; display: flex; align-items: center; gap: 0.75rem;">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3C13.2386 3 11 5.23858 11 8V10H21V8C21 5.23858 18.7614 3 16 3Z" fill="url(#logo_handle_grad)"/>
+          <rect x="4" y="10" width="24" height="20" rx="6" fill="url(#logo_body_grad)"/>
+          <circle cx="16" cy="20" r="5" fill="url(#logo_sphere_grad)"/>
+          <circle cx="16" cy="20" r="3.5" fill="white" fill-opacity="0.25"/>
+          <defs>
+            <linearGradient id="logo_handle_grad" x1="16" y1="3" x2="16" y2="10" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8A8DF2"/>
+              <stop stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="logo_body_grad" x1="4" y1="10" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366F1"/>
+              <stop stop-color="#4F46E5"/>
+            </linearGradient>
+            <linearGradient id="logo_sphere_grad" x1="11" y1="15" x2="21" y2="25" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF7EB3"/>
+              <stop stop-color="#E61969"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.65rem; background: linear-gradient(135deg, #1A1349 0%, #3B2EFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ShopSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <!-- Dynamically injected by main.js -->
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected by main.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN ADMINISTRATIVE OFFICE VIEW -->
+  <main>
+    <div class="container">
+      
+      <!-- HEADING UTILITIES -->
+      <section style="margin-bottom: 2rem; background: var(--surface); padding: 1.5rem 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--text);">Administrative Control Suite</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-top:0.15rem;">Review transactional statistics and manage core database structures</p>
+        </div>
+        <span class="badge badge-delivered" style="padding: 0.5rem 1rem; font-size: 0.85rem; font-weight:700;">DBMS PRIVILEGES: ACTIVE</span>
+      </section>
+
+      <!-- TWO-COLUMN WORKBENCH GRID -->
+      <div class="admin-layout">
+        
+        <!-- SIDEBAR CONTROLS -->
+        <aside class="admin-sidebar">
+          <ul class="admin-menu-list" id="admin-sidebar">
+            <li>
+              <button class="admin-menu-btn active" data-pane="pane-products">
+                📁 Products Manager
+              </button>
+            </li>
+            <li>
+              <button class="admin-menu-btn" data-pane="pane-orders">
+                🛒 Customer Orders
+              </button>
+            </li>
+            <li>
+              <button class="admin-menu-btn" data-pane="pane-users">
+                👤 User Directory
+              </button>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- RIGHT: TAB WORK PANES CONTAINER -->
+        <section style="flex-grow: 1;">
+          
+          <!-- ANALYTICS CARDS GRID -->
+          <div class="admin-stats-row">
+            <div class="stat-card">
+              <span class="stat-card-title">Catalog Products</span>
+              <div class="stat-card-value" id="stat-products">0</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card-title">Completed Sales</span>
+              <div class="stat-card-value" id="stat-orders">0</div>
+            </div>
+            <div class="stat-card" style="border-left:4px solid var(--accent);">
+              <span class="stat-card-title">Net Sales Earning</span>
+              <div class="stat-card-value" id="stat-revenue" style="color:var(--accent);">$0.00</div>
+            </div>
+          </div>
+
+          <!-- PANE 1: PRODUCTS CRUDS -->
+          <div class="admin-pane active" id="pane-products">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+              <h3 style="font-family:var(--font-display); font-size:1.3rem; font-weight:700;">Active Catalog Items</h3>
+              <button onclick="openAddProductModal()" class="btn btn-primary btn-sm">+ Add New Product</button>
+            </div>
+            
+            <div class="admin-table-container">
+              <table class="admin-table" id="admin-products-table">
+                <thead>
+                  <tr>
+                    <th>Product ID</th>
+                    <th>Product Title</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock Count</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-products-body">
+                  <!-- Dynamically populated admin products -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PANE 2: ORDERS SHIPMENTS -->
+          <div class="admin-pane" id="pane-orders">
+            <div style="margin-bottom:1.5rem;">
+              <h3 style="font-family:var(--font-display); font-size:1.3rem; font-weight:700;">Global Customer Sales Transactions</h3>
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table" id="admin-orders-table">
+                <thead>
+                  <tr>
+                    <th>Order Reference</th>
+                    <th>Customer Account</th>
+                    <th>Purchase Date</th>
+                    <th>Amount Charged</th>
+                    <th>Delivery Status</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-orders-body">
+                  <!-- Dynamically populated admin orders -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PANE 3: USERS LISTS -->
+          <div class="admin-pane" id="pane-users">
+            <div style="margin-bottom:1.5rem;">
+              <h3 style="font-family:var(--font-display); font-size:1.3rem; font-weight:700;">Registered User Accounts Directory</h3>
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table" id="admin-users-table">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>Account Holder</th>
+                    <th>Email Address</th>
+                    <th>Assigned Role</th>
+                    <th>Joined Date</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users-body">
+                  <!-- Dynamically populated admin users -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FLOATING MODAL FOR PRODUCT ADDITION & PROPERTY UPDATES -->
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h3 id="modal-title">Add New Product</h3>
+        <button type="button" class="modal-close" id="product-modal-close">&times;</button>
+      </div>
+
+      <form id="product-form">
+        <div class="form-group">
+          <label for="prod-title" class="form-label">Product Title *</label>
+          <input type="text" id="prod-title" class="form-control" placeholder="e.g. Mechanical Keyboard" required>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label for="prod-price" class="form-label">Price ($) *</label>
+            <input type="number" step="0.01" id="prod-price" class="form-control" placeholder="e.g. 59.99" required>
+          </div>
+          <div class="form-group">
+            <label for="prod-stock" class="form-label">Available Stock Count *</label>
+            <input type="number" id="prod-stock" class="form-control" placeholder="e.g. 15" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prod-category" class="form-label">Catalog Category *</label>
+          <select id="prod-category" class="form-control" style="cursor:pointer;" required>
+            <!-- Injected categories dynamically -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+            Product Picture *
+            <span id="img-source-toggle" style="font-size:0.75rem; font-weight:700; text-transform:none; color:var(--primary); cursor:pointer; text-decoration: underline;" onclick="toggleImageSourceMode()">Switch to URL input</span>
+          </label>
+          
+          <!-- IMAGE FILE UPLOADER SOURCE MODE -->
+          <div id="image-source-file-wrapper" style="display: block;">
+            <div class="upload-btn-wrapper" style="width: 100%;">
+              <button type="button" class="btn btn-outline" style="width: 100%; border-style: dashed; padding: 0.6rem 1rem; font-size: 0.85rem; background: #ffffff;">📁 Choose Local Picture File</button>
+              <input type="file" id="prod-image-file" accept="image/*">
+            </div>
+          </div>
+
+          <!-- IMAGE URL SOURCE MODE (HIDDEN BY DEFAULT) -->
+          <div id="image-source-url-wrapper" style="display: none;">
+            <input type="text" id="prod-image" class="form-control" style="font-size:0.85rem; padding: 0.6rem 1rem;" placeholder="e.g. /images/products/keyboard.jpg">
+          </div>
+
+          <!-- DYNAMIC PREVIEW BOX -->
+          <div class="img-upload-preview-box" id="img-upload-preview-container">
+            <span class="placeholder-text" id="img-upload-placeholder-text">No picture selected.<br><span style="font-size:0.75rem; color:var(--text-muted);">Upload a file or enter a URL to see live preview.</span></span>
+            <img src="" id="img-upload-preview-img" style="display:none;" alt="Live Preview">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prod-desc" class="form-label">Brief Description</label>
+          <textarea id="prod-desc" class="form-control" style="min-height: 80px; resize: vertical;" placeholder="Write a short summary detailing core features..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline btn-sm" id="btn-modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Catalog Product</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- DYNAMIC FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🌌 ShopSphere</h3>
+          <p>
+            Building the next generation of college e-commerce demonstrations. Elegant interfaces backed by robust parameter-protected SQL databases.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/products.html">Catalog</a></li>
+            <li><a href="/cart.html">My Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Security</h4>
+          <ul>
+            <li><a href="#">JWT Tokens</a></li>
+            <li><a href="#">Bcrypt Hashing</a></li>
+            <li><a href="#">SQL Prevention</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>College DBMS Project</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6;">
+            Designed as a high-fidelity working model with Node.js connection pooling, atomic SQL checkouts, and clean MVC files.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShopSphere E-Commerce Project. Prepared for DBMS Evaluation & Viva Defense.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript modules -->
+  <script src="/js/main.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

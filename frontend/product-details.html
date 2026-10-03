@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopSphere - Read extensive details about your selected items and add them to your cart.">
+  <title>ShopSphere | Product Details</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- DYNAMIC GLASSMORPHIC HEADER -->
+  <header>
+    <nav class="navbar container">
+      <a href="/index.html" class="logo" style="color: #1A1349; display: flex; align-items: center; gap: 0.75rem;">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3C13.2386 3 11 5.23858 11 8V10H21V8C21 5.23858 18.7614 3 16 3Z" fill="url(#logo_handle_grad)"/>
+          <rect x="4" y="10" width="24" height="20" rx="6" fill="url(#logo_body_grad)"/>
+          <circle cx="16" cy="20" r="5" fill="url(#logo_sphere_grad)"/>
+          <circle cx="16" cy="20" r="3.5" fill="white" fill-opacity="0.25"/>
+          <defs>
+            <linearGradient id="logo_handle_grad" x1="16" y1="3" x2="16" y2="10" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8A8DF2"/>
+              <stop stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="logo_body_grad" x1="4" y1="10" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366F1"/>
+              <stop stop-color="#4F46E5"/>
+            </linearGradient>
+            <linearGradient id="logo_sphere_grad" x1="11" y1="15" x2="21" y2="25" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF7EB3"/>
+              <stop stop-color="#E61969"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.65rem; background: linear-gradient(135deg, #1A1349 0%, #3B2EFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ShopSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <!-- Dynamically injected by main.js -->
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected by main.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CATALOG ITEM VIEW -->
+  <main>
+    <div class="container">
+      
+      <!-- NAVIGATION BREADCRUMB -->
+      <div style="margin-bottom: 2rem; font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">
+        <a href="/index.html" style="color:var(--primary);">Home</a> / 
+        <a href="/products.html" style="color:var(--primary);">Products</a> / 
+        <span id="breadcrumb-current" style="font-weight: 700; color: var(--text);">Product Details</span>
+      </div>
+
+      <!-- MAIN PRESENTATION CARD -->
+      <div class="product-details-grid" id="product-detail-container">
+        
+        <!-- LEFT THUMBNAIL PANEL -->
+        <div class="detail-img-pane" id="detail-img-pane">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- RIGHT DETAIL SPECS PANEL -->
+        <div class="detail-info-pane">
+          <span class="detail-category" id="detail-category">Loading...</span>
+          <h1 class="detail-title" id="detail-title">Loading Product Details</h1>
+          <span class="detail-price" id="detail-price">$0.00</span>
+          
+          <!-- STOCK STATUS INDICATOR -->
+          <div class="stock-indicator">
+            <span class="stock-dot" id="stock-dot" style="background-color: var(--border);"></span>
+            <span id="stock-text" style="color: var(--text-muted);">Verifying stock status...</span>
+          </div>
+
+          <h3 class="detail-desc-heading">Product Overview</h3>
+          <p class="detail-desc" id="detail-desc">
+            Product descriptions will be loaded in real-time from the MySQL database server...
+          </p>
+
+          <!-- QUANTITY SELECTOR AND CTA -->
+          <div style="border-top: 1px solid var(--border); padding-top: 2rem; margin-top: auto;">
+            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:center;">
+              
+              <!-- QUANTITY SELECTOR -->
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <span class="form-label" style="margin-bottom: 0;">Quantity:</span>
+                <div class="qty-controls" style="margin-bottom: 0;">
+                  <button type="button" id="qty-dec" class="qty-btn">-</button>
+                  <input type="text" id="qty-input" class="qty-input" value="1" readonly>
+                  <button type="button" id="qty-inc" class="qty-btn">+</button>
+                </div>
+              </div>
+
+              <!-- ACTION BUTTONS -->
+              <div style="display:flex; flex-grow:1; flex-direction:column; justify-content:flex-end; align-self:flex-end;">
+                <button id="add-to-cart-btn" class="btn btn-primary" style="width: 100%; height: 46px; font-size:1.05rem;" disabled>
+                  Add to Cart
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- DYNAMIC FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🌌 ShopSphere</h3>
+          <p>
+            Building the next generation of college e-commerce demonstrations. Elegant interfaces backed by robust parameter-protected SQL databases.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/products.html">Catalog</a></li>
+            <li><a href="/cart.html">My Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Security</h4>
+          <ul>
+            <li><a href="#">JWT Tokens</a></li>
+            <li><a href="#">Bcrypt Hashing</a></li>
+            <li><a href="#">SQL Prevention</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>College DBMS Project</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6;">
+            Designed as a high-fidelity working model with Node.js connection pooling, atomic SQL checkouts, and clean MVC files.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShopSphere E-Commerce Project. Prepared for DBMS Evaluation & Viva Defense.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript modules -->
+  <script src="/js/main.js"></script>
+  <script src="/js/products.js"></script>
+</body>
+</html>

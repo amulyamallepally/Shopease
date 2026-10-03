@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopSphere - Place your order securely, review shipping parameters, and complete payments.">
+  <title>ShopSphere | Secure Checkout</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- DYNAMIC GLASSMORPHIC HEADER -->
+  <header>
+    <nav class="navbar container">
+      <a href="/index.html" class="logo" style="color: #1A1349; display: flex; align-items: center; gap: 0.75rem;">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3C13.2386 3 11 5.23858 11 8V10H21V8C21 5.23858 18.7614 3 16 3Z" fill="url(#logo_handle_grad)"/>
+          <rect x="4" y="10" width="24" height="20" rx="6" fill="url(#logo_body_grad)"/>
+          <circle cx="16" cy="20" r="5" fill="url(#logo_sphere_grad)"/>
+          <circle cx="16" cy="20" r="3.5" fill="white" fill-opacity="0.25"/>
+          <defs>
+            <linearGradient id="logo_handle_grad" x1="16" y1="3" x2="16" y2="10" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8A8DF2"/>
+              <stop stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="logo_body_grad" x1="4" y1="10" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366F1"/>
+              <stop stop-color="#4F46E5"/>
+            </linearGradient>
+            <linearGradient id="logo_sphere_grad" x1="11" y1="15" x2="21" y2="25" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF7EB3"/>
+              <stop stop-color="#E61969"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.65rem; background: linear-gradient(135deg, #1A1349 0%, #3B2EFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ShopSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <!-- Dynamically injected by main.js -->
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected by main.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN SECURE CHECKOUT VIEW -->
+  <main>
+    <div class="container">
+      
+      <h2 style="font-family:var(--font-display); font-size:2rem; font-weight:800; margin-bottom:2rem;">Secure Checkout</h2>
+
+      <!-- TWO-COLUMN CHECKOUT SPLIT -->
+      <div class="checkout-layout">
+        
+        <!-- LEFT: CUSTOMER ADDRESS FORM -->
+        <div class="checkout-card">
+          <h3 class="checkout-header">Shipping & Delivery Details</h3>
+          
+          <form id="checkout-form">
+            <div class="form-group">
+              <label for="shipping-address" class="form-label">Full Delivery Address *</label>
+              <textarea id="shipping-address" class="form-control" style="min-height: 100px; resize: vertical;" placeholder="Enter house number, street, city, state, zip code..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="phone-number" class="form-label">Active Contact Phone Number *</label>
+              <input type="tel" id="phone-number" class="form-control" placeholder="Enter your 10-digit mobile number..." required>
+              <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">Used solely for shipment coordination during delivery.</p>
+            </div>
+
+            <div style="margin-top:2.5rem; border-top:1px solid var(--border); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+              <a href="/cart.html" style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">← Return to Cart</a>
+              <button type="submit" class="btn btn-primary" style="height: 46px;">Place My Order</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- RIGHT: SUMMARY RECAP CARD -->
+        <div class="checkout-card" style="height: fit-content;">
+          <h3 class="checkout-header">Order Review</h3>
+          
+          <!-- RECAP LIST CONTAINER -->
+          <div class="order-recap-items" id="order-recap-container">
+            <!-- Dynamically populated recap list of products -->
+            <div class="spinner" style="margin: 1rem auto; width: 24px; height: 24px; border-width: 2px;"></div>
+          </div>
+
+          <!-- PRICING RECAP SUMMARIES -->
+          <div style="border-top:1px solid var(--border); padding-top:1rem; display:flex; flex-direction:column; gap:0.75rem;">
+            <div style="display:flex; justify-content:space-between; font-size:0.9rem; color:var(--text-muted);">
+              <span>Cart Subtotal</span>
+              <span id="recap-subtotal">$0.00</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.9rem; color:var(--text-muted);">
+              <span>Estimated Shipping</span>
+              <span id="recap-shipping">$0.00</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.9rem; color:var(--text-muted);">
+              <span>DBMS Tax (5%)</span>
+              <span id="recap-tax">$0.00</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-family:var(--font-display); font-size:1.25rem; font-weight:800; border-top:1px solid var(--border); padding-top:0.75rem; margin-top:0.25rem;">
+              <span>Grand Total</span>
+              <span id="recap-total" style="color:var(--accent);">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- DYNAMIC FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🌌 ShopSphere</h3>
+          <p>
+            Building the next generation of college e-commerce demonstrations. Elegant interfaces backed by robust parameter-protected SQL databases.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/products.html">Catalog</a></li>
+            <li><a href="/cart.html">My Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Security</h4>
+          <ul>
+            <li><a href="#">JWT Tokens</a></li>
+            <li><a href="#">Bcrypt Hashing</a></li>
+            <li><a href="#">SQL Prevention</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>College DBMS Project</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6;">
+            Designed as a high-fidelity working model with Node.js connection pooling, atomic SQL checkouts, and clean MVC files.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShopSphere E-Commerce Project. Prepared for DBMS Evaluation & Viva Defense.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript modules -->
+  <script src="/js/main.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

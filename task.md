@@ -1,0 +1,22 @@
+# ShopSphere Development Tasks
+
+- `[x]` Step 1: Install dependencies and set up project files (`package.json`, `.env`, `server.js`)
+- `[x]` Step 2: Create MySQL database schema and pool connection (`database/shopsphere.sql`, `backend/config/db.js`)
+- `[x]` Step 3: Implement Auth middleware and core routes (`authMiddleware.js`, `authController.js`, `authRoutes.js`)
+- `[x]` Step 4: Implement Products, Cart, and Order APIs
+  - `[x]` Product routes & controllers
+  - `[x]` Cart routes & controllers
+  - `[x]` Order routes & controllers
+- `[x]` Step 5: Implement Vanilla CSS design system (`frontend/css/style.css`)
+- `[x]` Step 6: Build frontend authentication, main utility scripts, and pages
+  - `[x]` Navbar, utility tools, global setup (`main.js`)
+  - `[x]` Login & Registration (`login.html`, `register.html`, `auth.js`)
+  - `[x]` Home Page & Hero (`index.html`)
+  - `[x]` Product Browse & Detail View (`products.html`, `product-details.html`)
+- `[x]` Step 7: Build frontend interactive cart & checkout
+  - `[x]` Shopping Cart (`cart.html`, `cart.js`)
+  - `[x]` Checkout panel (`checkout.html`, `checkout.js`)
+  - `[x]` Order history (`orders.html`, `orders.js`)
+- `[x]` Step 8: Build the Admin Dashboard with full CRUD
+  - `[x]` Manage products, users, and orders (`admin.html`, `admin.js`)
+- `[x]` Step 9: Write comprehensive README.md and verify the final application

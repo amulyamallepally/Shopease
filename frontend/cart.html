@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopSphere - Manage your cart, update quantities, calculate total costs, and checkout securely.">
+  <title>ShopSphere | Shopping Cart</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- DYNAMIC GLASSMORPHIC HEADER -->
+  <header>
+    <nav class="navbar container">
+      <a href="/index.html" class="logo" style="color: #1A1349; display: flex; align-items: center; gap: 0.75rem;">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3C13.2386 3 11 5.23858 11 8V10H21V8C21 5.23858 18.7614 3 16 3Z" fill="url(#logo_handle_grad)"/>
+          <rect x="4" y="10" width="24" height="20" rx="6" fill="url(#logo_body_grad)"/>
+          <circle cx="16" cy="20" r="5" fill="url(#logo_sphere_grad)"/>
+          <circle cx="16" cy="20" r="3.5" fill="white" fill-opacity="0.25"/>
+          <defs>
+            <linearGradient id="logo_handle_grad" x1="16" y1="3" x2="16" y2="10" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8A8DF2"/>
+              <stop stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="logo_body_grad" x1="4" y1="10" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366F1"/>
+              <stop stop-color="#4F46E5"/>
+            </linearGradient>
+            <linearGradient id="logo_sphere_grad" x1="11" y1="15" x2="21" y2="25" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF7EB3"/>
+              <stop stop-color="#E61969"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.65rem; background: linear-gradient(135deg, #1A1349 0%, #3B2EFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ShopSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <!-- Dynamically injected by main.js -->
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected by main.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN SHOPPING CART VIEW -->
+  <main>
+    <div class="container">
+      
+      <h2 style="font-family:var(--font-display); font-size:2rem; font-weight:800; margin-bottom:2rem;">Your Shopping Cart</h2>
+
+      <!-- CART SPLIT LAYOUT -->
+      <div class="cart-layout">
+        
+        <!-- LEFT: CART ITEMS CONTAINER -->
+        <div class="cart-items-panel" id="cart-items-panel">
+          <table class="cart-table" id="cart-table">
+            <thead>
+              <tr>
+                <th style="width: 50%;">Product Details</th>
+                <th style="width: 15%;">Price</th>
+                <th style="width: 15%;">Quantity</th>
+                <th style="width: 15%;">Subtotal</th>
+                <th style="width: 5%;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="cart-table-body">
+              <!-- Dynamically populated cart items -->
+            </tbody>
+          </table>
+
+          <div style="display:flex; justify-content:space-between; margin-top:2rem; border-top:1px solid var(--border); padding-top:1.5rem;">
+            <a href="/products.html" class="btn btn-outline btn-sm">← Continue Shopping</a>
+            <button onclick="clearAllCart()" class="btn btn-danger btn-sm" style="background:#5c5a6d; color:white;">Clear Shopping Cart</button>
+          </div>
+        </div>
+
+        <!-- RIGHT: SUMMARIES PANEL -->
+        <div class="cart-summary-panel" id="cart-summary-panel">
+          <h3 class="summary-title">Order Summary</h3>
+          
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summary-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="summary-shipping">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Taxes (5%)</span>
+            <span id="summary-tax">$0.00</span>
+          </div>
+
+          <div class="summary-row total">
+            <span>Grand Total</span>
+            <span id="summary-total">$0.00</span>
+          </div>
+
+          <a href="/checkout.html" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center; height:46px; font-size:1.05rem;">
+            Proceed To Checkout
+          </a>
+
+          <p style="font-size:0.75rem; text-align:center; color:var(--text-muted); margin-top:1rem;">
+            🔒 Safe & Secure Checkout System. Parameter-protected SQL logs.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- DYNAMIC FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🌌 ShopSphere</h3>
+          <p>
+            Building the next generation of college e-commerce demonstrations. Elegant interfaces backed by robust parameter-protected SQL databases.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/products.html">Catalog</a></li>
+            <li><a href="/cart.html">My Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Security</h4>
+          <ul>
+            <li><a href="#">JWT Tokens</a></li>
+            <li><a href="#">Bcrypt Hashing</a></li>
+            <li><a href="#">SQL Prevention</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>College DBMS Project</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6;">
+            Designed as a high-fidelity working model with Node.js connection pooling, atomic SQL checkouts, and clean MVC files.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShopSphere E-Commerce Project. Prepared for DBMS Evaluation & Viva Defense.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript modules -->
+  <script src="/js/main.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

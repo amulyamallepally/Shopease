@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ShopSphere - Modern, High-Fidelity E-Commerce Web Application. Find laptops, fashion, books, and home lights.">
+  <title>ShopSphere | Premium E-Commerce Experience</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <!-- DYNAMIC GLASSMORPHIC HEADER -->
+  <header>
+    <nav class="navbar container">
+      <a href="/index.html" class="logo" style="color: #1A1349; display: flex; align-items: center; gap: 0.75rem;">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3C13.2386 3 11 5.23858 11 8V10H21V8C21 5.23858 18.7614 3 16 3Z" fill="url(#logo_handle_grad)"/>
+          <rect x="4" y="10" width="24" height="20" rx="6" fill="url(#logo_body_grad)"/>
+          <circle cx="16" cy="20" r="5" fill="url(#logo_sphere_grad)"/>
+          <circle cx="16" cy="20" r="3.5" fill="white" fill-opacity="0.25"/>
+          <defs>
+            <linearGradient id="logo_handle_grad" x1="16" y1="3" x2="16" y2="10" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8A8DF2"/>
+              <stop stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="logo_body_grad" x1="4" y1="10" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366F1"/>
+              <stop stop-color="#4F46E5"/>
+            </linearGradient>
+            <linearGradient id="logo_sphere_grad" x1="11" y1="15" x2="21" y2="25" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF7EB3"/>
+              <stop stop-color="#E61969"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.65rem; background: linear-gradient(135deg, #1A1349 0%, #3B2EFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ShopSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <!-- Dynamically injected by main.js -->
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected by main.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN HOMEPAGE DISPLAY -->
+  <main>
+    <div class="container">
+
+      <!-- HERO SHOWCASE -->
+      <section class="hero">
+        <!-- Sparkle Star Elements -->
+        <span class="sparkle-star" style="top: 15%; left: 45%;">✦</span>
+        <span class="sparkle-star" style="bottom: 30%; right: 42%;">✦</span>
+
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="badge" style="background:#ECE9FE; color:#5D46E6; padding:0.4rem 0.8rem; font-size:0.75rem; margin-bottom:1rem; font-weight:700; border-radius:50px;">✨ New Arrival</span>
+            <h1>Discover. Shop.<br><span class="heart-word">Love.</span></h1>
+            <p>
+              Handpicked products ✨ &bull; Great prices 💜 &bull; Fast delivery 🚚<br>
+              Everything you need, right here.
+            </p>
+            <div class="hero-actions">
+              <a href="/products.html" class="btn btn-primary" style="background:#3B2EFA; box-shadow:0 10px 20px rgba(99, 102, 241, 0.2); border:none;">Shop Now &rarr;</a>
+              <a href="/products.html" class="btn btn-outline" style="color:#3B2EFA; border-color:#3B2EFA;">Explore Deals</a>
+            </div>
+            
+            <div class="hero-bullets">
+              <div class="bullet-item"><span>🛡️</span> Secure Payments</div>
+              <div class="bullet-item"><span>🔄</span> Easy Returns</div>
+              <div class="bullet-item"><span>🎧</span> 24/7 Support</div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <!-- Dynamic Best Seller Card -->
+            <div class="hero-bestseller-card" id="hero-bestseller-card">
+              <span class="bestseller-pill">Best Seller</span>
+              <div class="bestseller-img-wrapper">
+                <img src="/images/products/headphones.jpg" alt="Premium Sound Pro" class="bestseller-img" id="hero-bestseller-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="bestseller-img-placeholder" style="display:none; font-size:4rem;">🎧</div>
+              </div>
+              <div class="bestseller-info">
+                <h3 id="hero-bestseller-title">Premium Sound Pro</h3>
+                <p id="hero-bestseller-desc">Feel Every Beat. Live Every Moment.</p>
+                <div class="bestseller-footer">
+                  <span class="bestseller-price" id="hero-bestseller-price">$129.00</span>
+                  <button class="btn-bestseller" id="hero-bestseller-btn">Shop the Collection</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED CATEGORIES -->
+      <section style="margin-bottom: 4rem;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Shop by Category</h2>
+            <p class="section-subtitle">Exquisite design parameters across major collections</p>
+          </div>
+        </div>
+        <div class="categories-grid" id="home-categories-grid">
+          <!-- Dynamically populated categories -->
+          <div class="spinner"></div>
+        </div>
+      </section>
+
+      <!-- FEATURED PRODUCTS -->
+      <section id="featured-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Trending Now</h2>
+            <p class="section-subtitle">Stunning releases currently capturing customer attention</p>
+          </div>
+          <a href="/products.html" class="btn btn-outline btn-sm">Explore All Products →</a>
+        </div>
+
+        <!-- GRID CONTAINER -->
+        <div class="products-grid" id="featured-products-grid">
+          <div class="spinner" style="grid-column: 1 / -1;"></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MAIN STYLISH FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🌌 ShopSphere</h3>
+          <p>
+            Building the next generation of college e-commerce demonstrations. Elegant interfaces backed by robust
+            parameter-protected SQL databases.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/products.html">Catalog</a></li>
+            <li><a href="/cart.html">My Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Security</h4>
+          <ul>
+            <li><a href="#">JWT Tokens</a></li>
+            <li><a href="#">Bcrypt Hashing</a></li>
+            <li><a href="#">SQL Prevention</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>College DBMS Project</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6;">
+            Designed as a high-fidelity working model with Node.js connection pooling, atomic SQL checkouts, and clean
+            MVC files.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShopSphere E-Commerce Project. Prepared for DBMS Evaluation & Viva Defense.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Core Javascript modules -->
+  <script src="/js/main.js"></script>
+  <script src="/js/products.js"></script>
+</body>
+
+</html>

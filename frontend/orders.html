@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopSphere - Review your order history, trace delivery details, and inspect line transactions.">
+  <title>ShopSphere | My Orders</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- DYNAMIC GLASSMORPHIC HEADER -->
+  <header>
+    <nav class="navbar container">
+      <a href="/index.html" class="logo" style="color: #1A1349; display: flex; align-items: center; gap: 0.75rem;">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3C13.2386 3 11 5.23858 11 8V10H21V8C21 5.23858 18.7614 3 16 3Z" fill="url(#logo_handle_grad)"/>
+          <rect x="4" y="10" width="24" height="20" rx="6" fill="url(#logo_body_grad)"/>
+          <circle cx="16" cy="20" r="5" fill="url(#logo_sphere_grad)"/>
+          <circle cx="16" cy="20" r="3.5" fill="white" fill-opacity="0.25"/>
+          <defs>
+            <linearGradient id="logo_handle_grad" x1="16" y1="3" x2="16" y2="10" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8A8DF2"/>
+              <stop stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="logo_body_grad" x1="4" y1="10" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366F1"/>
+              <stop stop-color="#4F46E5"/>
+            </linearGradient>
+            <linearGradient id="logo_sphere_grad" x1="11" y1="15" x2="21" y2="25" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF7EB3"/>
+              <stop stop-color="#E61969"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.65rem; background: linear-gradient(135deg, #1A1349 0%, #3B2EFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ShopSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <!-- Dynamically injected by main.js -->
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected by main.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN PERSONAL ORDERS BOARD -->
+  <main>
+    <div class="container">
+      
+      <h2 style="font-family:var(--font-display); font-size:2rem; font-weight:800; margin-bottom:2rem;">Your Order History</h2>
+
+      <!-- ORDER CARDS STACK LIST -->
+      <section class="orders-list" id="orders-list">
+        <div class="spinner"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- INTERACTIVE DETAILED ORDER LINE MODAL -->
+  <div class="modal" id="order-detail-modal">
+    <div class="modal-content" style="max-width: 680px;">
+      
+      <div class="modal-header">
+        <div>
+          <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Transaction Recap</span>
+          <h3 style="margin-top:0.15rem;">Order #<span id="modal-order-id" style="color:var(--primary);">ORD-00</span></h3>
+        </div>
+        <button type="button" class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; background:var(--surface-secondary); padding:1.25rem 1.5rem; border-radius:var(--radius-md); border:1px solid var(--border); font-size:0.85rem; margin-bottom:1.5rem;">
+        <div>
+          <div style="margin-bottom:0.5rem;"><strong style="color:var(--text-muted);">Date Placed:</strong> <span id="modal-order-date">May 28, 2026</span></div>
+          <div><strong style="color:var(--text-muted);">Shipment:</strong> <span id="modal-order-status" class="badge">PENDING</span></div>
+        </div>
+        <div>
+          <div style="margin-bottom:0.5rem;"><strong style="color:var(--text-muted);">Shipping Address:</strong> <span id="modal-ship-address">Address Text</span></div>
+          <div><strong style="color:var(--text-muted);">Contact Phone:</strong> <span id="modal-ship-phone">Phone Number</span></div>
+        </div>
+      </div>
+
+      <!-- INJECTED ORDER LINE ITEMS -->
+      <div id="modal-items-container">
+        <div class="spinner"></div>
+      </div>
+
+      <div class="modal-actions" style="margin-top:1.5rem;">
+        <button onclick="document.getElementById('order-detail-modal').classList.remove('active')" class="btn btn-primary btn-sm">Close Receipt</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DYNAMIC FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🌌 ShopSphere</h3>
+          <p>
+            Building the next generation of college e-commerce demonstrations. Elegant interfaces backed by robust parameter-protected SQL databases.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/products.html">Catalog</a></li>
+            <li><a href="/cart.html">My Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Security</h4>
+          <ul>
+            <li><a href="#">JWT Tokens</a></li>
+            <li><a href="#">Bcrypt Hashing</a></li>
+            <li><a href="#">SQL Prevention</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>College DBMS Project</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6;">
+            Designed as a high-fidelity working model with Node.js connection pooling, atomic SQL checkouts, and clean MVC files.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShopSphere E-Commerce Project. Prepared for DBMS Evaluation & Viva Defense.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript modules -->
+  <script src="/js/main.js"></script>
+  <script src="/js/orders.js"></script>
+</body>
+</html>
